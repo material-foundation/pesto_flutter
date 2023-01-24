@@ -4,4 +4,4 @@ Learn how to build the basil material study in Flutter with advanced theming tec
 
 ![Banner](assets/images/Banner.png)
 
-> Suggestions or feedback? Ping us @materialdesign on Twitter.
+> Suggestions or feedback? Ping us [@materialdesign](https://twitter.com/materialdesign) on Twitter.
