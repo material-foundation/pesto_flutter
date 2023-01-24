@@ -1,16 +1,7 @@
-# pesto_example
+# Flutter Forward 2022: Material 3 from design to deployment
 
-A new Flutter project.
+Learn how to build the basil material study in Flutter with advanced theming techniques that support multiple device contexts. This file is a companion to the live workshop at Flutter Forward 2022
 
-## Getting Started
+![Banner](assets/images/Banner.png)
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+> Suggestions or feedback? Ping us @materialdesign on Twitter.
