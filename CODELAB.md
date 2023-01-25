@@ -1,10 +1,3 @@
----
-id: design-to-dev-building-an-app-from-start-to-finish
-source: https://docs.google.com/document/d/1COWfFPwJHbLpU4wsPoXbfSoMDG_4ll7Dcf_GjmLyTug/edit?resourcekey=0-r5S5PM8hCCGPx-Dzzqlh5A
-duration: 0
-
----
-
 # Design to Dev : Building An App from Start to Finish
 
 
