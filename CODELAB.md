@@ -59,7 +59,7 @@ In this application, we will be using a number of libraries and a defined applic
 
 Let's start by creating the directory structure we will need later. 
 
-```
+```sh
 mkdir lib/domain
 mkdir lib/data
 mkdir lib/presentation
@@ -67,7 +67,7 @@ mkdir lib/presentation
 
 We also need to add the images to the project. Update the ``pubspec.yaml`` to include the images located at `assets/images/`:
 
-```
+```yaml
 name: pesto_example
 description: A new Flutter project.
 
@@ -108,7 +108,7 @@ If we run the application right now, we'll see the template Counter app. Let's f
 
  Create a file at `lib/presentation/app.dart` and add the following text.
 
-```
+```dart
 import 'package:flutter/material.dart';
 
 class Pesto extends StatefulWidget {
@@ -132,7 +132,7 @@ class _PestoState extends State<Pesto> {
 
 Replace the lib/main.dart app with the following.
 
-```
+```dart
 import 'package:flutter/material.dart';
 import 'presentation/app.dart';
 
@@ -148,7 +148,7 @@ void main() {
 
 Following our application structure, we have a domain model class that holds all the data needed to create a recipe, a number of which are optional. Create a file at lib/domain/model/recipe.dart and add the following content:
 
-```
+```dart
 import 'package:flutter/material.dart';
 
 /// Base class for all recipes
@@ -201,7 +201,7 @@ Our RecipesScreen has some basic structure to show a list of recipes using ListT
 
 lib/presentation/screens/RecipesScreen.dart
 
-```
+```dart
 import 'package:flutter/material.dart';
 // import 'package:go_router/go_router.dart';
 // Will remove later
@@ -264,13 +264,13 @@ Now that we have a general RecipesScreen, let's add one to display individual re
 
 The collection package can search a list of items given an expression. 
 
-```
+```sh
 $ flutter pub add collection
 ```
 
 For now, we have included a couple recipes and our widget will simply show the recipe id.
 
-```
+```dart
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:pesto_example/domain/model/recipe.dart';
@@ -348,7 +348,7 @@ To route between targets in your app, you need to set up routes. In our applicat
 
 Add the following to lib/presentation/router.dart
 
-```
+```dart
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 import 'package:pesto_example/presentation/screens/recipe.dart';
@@ -376,7 +376,7 @@ GoRouter buildRouter() {
 
 In lib/presentation/app.dart, replace the current _PestoState with the following that will use the routes we have set up.
 
-```
+```dart
 class _PestoState extends State<Pesto> {
   late final router = buildRouter();
 
@@ -396,7 +396,7 @@ class _PestoState extends State<Pesto> {
 
 In lib/presentation/screens/recipes.dart, make sure the onTap line is uncommented and that you've added an import for go_router.
 
-```
+```dart
 import 'package:go_router/go_router.dart';
 ...
 
@@ -447,7 +447,7 @@ The Riverpod  [Provider](https://pub.dev/documentation/riverpod/latest/riverpod/
 
 Create and update the file `lib/data/repository/module.dart`  with the following code:
 
-```
+```dart
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../domain/repository/recipes.dart';
@@ -466,7 +466,7 @@ RecipeRepository requires a single function for classes that extend it, a functi
 
 Update the file `lib/domain/repository/recipes.dart`  with the following:
 
-```
+```dart
 import '../model/recipe.dart';
 
 /// Repository for recipes
@@ -480,7 +480,7 @@ abstract class RecipesRepository {
 
 Update the file `lib/data/repository/recipes_impl.dart`  with the following:
 
-```
+```dart
 import 'package:flutter/material.dart';
 
 import '../../domain/model/recipe.dart';
@@ -638,7 +638,7 @@ ConsumerWidget extends StatelessWidget but can listen to providers.
 
 There's only a small change required to turn a StatelessWidget into a ConsumerWidget. The signature of the build function takes in a Widget ref in addition to the BuildContext as shown below. Inside that build function, you can use that WidgetRef to access providers you've already set up.
 
-```
+```dart
 class Example extends ConsumerWidget {
   const Example({Key? key}): super(key: key);
 
@@ -657,7 +657,7 @@ In the recipe screen file, we need to:
 * Add WidgetRef to the signature of the build function
 * Replace the local variable recipes with a call to ref.watch in the build function
 
-```
+```dart
 import '../../data/repository/module.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -676,7 +676,7 @@ class RecipeScreen extends ConsumerWidget {
 
 Similar changes need to be made in the recipes screen file. All necessary changes are at the start of the file.
 
-```
+```dart
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -697,7 +697,7 @@ class RecipesScreen extends ConsumerWidget {
 
 In your lib/main.dart file, add the ProviderScope and riverpod import so that it matches the following.
 
-```
+```dart
 import 'package:flutter/material.dart';
 import 'package:pesto_example/presentation/app.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -725,7 +725,7 @@ $ flutter pub add material_color_utilities
 
 Update the `lib/presentation/theme.dart`  file with the following:
 
-```
+```dart
 import 'package:flutter/material.dart';
 import 'package:material_color_utilities/material_color_utilities.dart';
 
@@ -862,11 +862,11 @@ Here we added the brand colors defined in our design file.
 
 This also defines our theme class as a theme extension to be able to reference it in the widget tree with proper overrides.
 
-#### lib/presentation/app.dart
+`lib/presentation/app.dart`
 
 Update the file with the following:
 
-```
+```dart
 import 'package:flutter/material.dart';
 
 import 'router.dart';
@@ -910,7 +910,7 @@ For Basil we have multiple brand colors that we need to use to create custom ton
 
 First define a base palette that all tokens can inherit from if not overridden.
 
-```
+```dart
 @immutable
 class BasilTheme extends ThemeExtension<BasilTheme> {
   ...
@@ -946,7 +946,7 @@ To learn more about the new tokens in material design you can go to  [m3.materia
 
 Next add the overrides for the tokens.
 
-```
+```dart
 @immutable
 class BasilTheme extends ThemeExtension<BasilTheme> {
   ...
@@ -992,7 +992,7 @@ Note that for a dark theme there needs to be different tones used for the tokens
 
 For most cases, you will not need to create a custom color scheme, but the final theme file will demonstrate many of the things that the helper functions will give you automatically.
 
-```
+```dart
 extension on Scheme {
   ColorScheme toColorScheme(Brightness brightness) {
     return ColorScheme(
@@ -1014,7 +1014,7 @@ When overriding a token such as the scaffold background, sometimes the design wi
 
 For this token we are checking if it is a light brightness and using the brand color defined earlier.
 
-```
+```dart
 @immutable
 class BasilTheme extends ThemeExtension<BasilTheme> {
   ...
@@ -1034,7 +1034,7 @@ class BasilTheme extends ThemeExtension<BasilTheme> {
 
 Finally we can compose the complete color scheme and theme data class in out "to theme data" method, while making sure to pass the brightness.
 
-```
+```dart
 @immutable
 class BasilTheme extends ThemeExtension<BasilTheme> {
   ...
@@ -1080,7 +1080,7 @@ After adding ShellRoute, we'll have a few more routes in the app we need to crea
 
 `lib/presentation/screens/settings.dart`
 
-```
+```dart
 import 'package:flutter/material.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -1100,7 +1100,7 @@ class SettingsScreen extends StatelessWidget {
 
 `lib/presentation/screens/profile.dart`
 
-```
+```dart
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -1120,7 +1120,7 @@ class ProfileScreen extends StatelessWidget {
 
 `lib/presentation/screens/notes.dart`
 
-```
+```dart
 import 'package:flutter/material.dart';
 
 class NotesScreen extends StatelessWidget {
@@ -1138,11 +1138,11 @@ class NotesScreen extends StatelessWidget {
 }
 ```
 
-#### lib/presentation/router.dart
+`lib/presentation/router.dart`
 
 Now we can update the router with a `ShellRoute`.
 
-```
+```dart
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -1250,7 +1250,7 @@ Right now the app is built for one form factor. Instead, we'd like flexibility t
 
 The `RootLayout` widget `(lib/presentation/screens/root.dart)` gives us this flexibility. Its build function examines the LayoutBuilder constraints to determine maxWidth and if it is 860 pixels wide or more, the tablet form factor is constructed. Otherwise the mobile is used.
 
-```
+```dart
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -1403,9 +1403,9 @@ Go ahead and create the following files:
 
 
 
-#### lib/presentation/widgets/adaptive_cards.dart
+`lib/presentation/widgets/adaptive_cards.dart`
 
-```
+```dart
 import 'package:flutter/material.dart';
 
 import '../theme.dart';
@@ -1504,9 +1504,9 @@ class AdaptiveCards extends StatelessWidget {
 
 
 
-#### lib/presentation/widgets/filter_list.dart
+`lib/presentation/widgets/filter_list.dart`
 
-```
+```dart
 import 'package:flutter/material.dart';
 
 import 'selected_chip.dart';
@@ -1551,9 +1551,9 @@ class FilterList extends StatelessWidget {
 
 ```
 
-#### lib/presentation/widgets/selected_chip.dart
+`lib/presentation/widgets/selected_chip.dart`
 
-```
+```dart
 import 'package:flutter/material.dart';
 
 class SelectedChip extends StatelessWidget {
@@ -1664,9 +1664,9 @@ class WarningChip extends StatelessWidget {
 }
 ```
 
-#### lib/presentation/screens/recipe.dart
+`lib/presentation/screens/recipe.dart`
 
-```
+```dart
 import 'dart:math';
 
 import 'package:collection/collection.dart';
@@ -1947,9 +1947,9 @@ class DashedLinePainter extends CustomPainter {
 
 
 
-#### lib/presentation/screens/recipe.dart
+`lib/presentation/screens/recipe.dart`
 
-```
+```dart
 import 'dart:math';
 
 import 'package:collection/collection.dart';
@@ -2230,7 +2230,7 @@ class DashedLinePainter extends CustomPainter {
 
 
 
-```
+```dart
 import 'package:flutter/material.dart';
 
 class Logo extends StatelessWidget {
@@ -2341,7 +2341,7 @@ Based on the design file we need to use 2 different fonts.  [Lekton](https://fon
 
 First we need to import the google fonts package in the file where we defined our theme.
 
-```
+```dart
 ...
 import 'package:google_fonts/google_fonts.dart';
 ...
@@ -2360,7 +2360,7 @@ Note that it is possible to override just a single level or groups of styles dep
 
 &gt; This package just require internet access to make sure to give the macos target if running the correct entitlement defined in the package.
 
-```
+```dart
 @immutable
 class BasilTheme extends ThemeExtension<BasilTheme> {
     ...
@@ -2389,7 +2389,7 @@ Let's add the material color utilities import above our theme to get access to t
 
 &gt; The flutter SDK already depends on the package but you will still want to add the package to you pubspec dependencies.
 
-```
+```dart
 ...
 import 'package:material_color_utilities/material_color_utilities.dart';
 
@@ -2408,7 +2408,7 @@ Next we'll be making a number of changes to the widgets we've created. These are
 
 ### Tab bar
 
-```
+```dart
 @immutable
 class BasilTheme extends ThemeExtension<BasilTheme> {
     ...
@@ -2430,7 +2430,7 @@ class BasilTheme extends ThemeExtension<BasilTheme> {
 
 ### Floating action button
 
-```
+```dart
 @immutable
 class BasilTheme extends ThemeExtension<BasilTheme> {
     ...
@@ -2449,7 +2449,7 @@ class BasilTheme extends ThemeExtension<BasilTheme> {
 
 ### Navigation rail
 
-```
+```dart
 @immutable
 class BasilTheme extends ThemeExtension<BasilTheme> {
     ...
@@ -2470,7 +2470,7 @@ class BasilTheme extends ThemeExtension<BasilTheme> {
 
 ### App bar and chips
 
-```
+```dart
 @immutable
 class BasilTheme extends ThemeExtension<BasilTheme> {
     ...
@@ -2503,7 +2503,7 @@ Applying this to Pesto, when you navigate into the details of a specific recipe,
 
 `lib/presentation/widgets/image_theme.dart`
 
-```
+```dart
 import 'package:flutter/material.dart';
 import 'package:material_color_utilities/material_color_utilities.dart';
 import 'package:palette_generator/palette_generator.dart';
@@ -2578,7 +2578,7 @@ Now we can update the recipe class to include the new widget.
 
 `lib/presentation/screens/recipe.dart`
 
-```
+```dart
 import 'dart:math';
 
 ...
