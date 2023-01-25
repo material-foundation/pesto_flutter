@@ -1,4 +1,4 @@
-# Flutter Forward 2022: Material 3 from design to deployment
+# Flutter Forward 2023: Material 3 from design to deployment
 
 ![Banner](assets/images/Banner.png)
 
