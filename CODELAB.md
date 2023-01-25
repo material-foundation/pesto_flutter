@@ -2607,12 +2607,9 @@ Now when we run the application the colors will be tinted based on the image sel
 
 ## Conclusion
 
-
-
 In this codelab, you learned how to create an adaptive application using Material 3 components and supporting libraries.
 
 ### Resources
 
-*  [Slide Deck]()
-*  [Figma File](https://www.figma.com/file/qm4WF1fsYg4bQyyN46wWUg/Basil-M3-Sandbox?node-id=52697%3A24423&t=BU688E2Qr3kwQYrL-0)
-
+*  [Figma File](goo.gle/ff22-pesto-figma)
+*  [Github Repo](https://github.com/material-foundation/pesto_flutter)
