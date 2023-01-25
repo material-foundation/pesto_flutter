@@ -2613,6 +2613,6 @@ In this codelab, you learned how to create an adaptive application using Materia
 
 ### Resources
 
-*  [Slide Deck](https://docs.google.com/presentation/d/1ehk3XltFnpH9hRfTXKT0DvMsYha-K3mU2g1h2qNaXuo/edit?resourcekey=0-w2Iqe6V1AgmJWuOgAmcvNg#slide=id.g1aebea80936_1_1283)
+*  [Slide Deck]()
 *  [Figma File](https://www.figma.com/file/qm4WF1fsYg4bQyyN46wWUg/Basil-M3-Sandbox?node-id=52697%3A24423&t=BU688E2Qr3kwQYrL-0)
 
