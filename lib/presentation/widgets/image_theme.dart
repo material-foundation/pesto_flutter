@@ -16,6 +16,7 @@ import 'package:flutter/material.dart';
 import 'package:material_color_utilities/material_color_utilities.dart';
 import 'package:palette_generator/palette_generator.dart';
 
+/// See also @link https://github.com/flutter/flutter/issues/119333
 class ImageTheme extends StatelessWidget {
   const ImageTheme({
     super.key,
